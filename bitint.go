@@ -9,17 +9,17 @@ func (bitInt *BitInt) SetFlag(pos uint64) {
 	}
 	*bitInt = *bitInt | (1 << pos)
 }
-func (bitInt *BitInt) GetFlag(pos uint64) uint64 {
+func (bitInt BitInt) GetFlag(pos uint64) uint64 {
 	if pos > 63 {
 		return 0
 	}
-	return uint64((*bitInt >> pos) & 1)
+	return uint64((bitInt >> pos) & 1)
 }
-func (bitInt *BitInt) IsPosTrue(pos uint64) bool {
+func (bitInt BitInt) IsPosTrue(pos uint64) bool {
 	if pos > 63 {
 		return false
 	}
-	return ((*bitInt >> pos) & 1) == 1
+	return ((bitInt >> pos) & 1) == 1
 }
 func (bitInt *BitInt) UnSetFlag(pos uint64) {
 	if pos > 63 {
@@ -27,8 +27,8 @@ func (bitInt *BitInt) UnSetFlag(pos uint64) {
 	}
 	*bitInt = *bitInt & (^(1 << pos))
 }
-func (bitInt *BitInt) IsAllZero() bool {
-	return *bitInt == 0
+func (bitInt BitInt) IsAllZero() bool {
+	return bitInt == 0
 }
 func (bitInt *BitInt) GetTrueLen(mostPos ...uint64) (cnt uint64) { //
 	// see TestBitIntGetTrueLen
