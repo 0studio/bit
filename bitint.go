@@ -2,6 +2,10 @@ package bit
 
 type BitInt uint64
 
+func (bitInt BitInt) Len() int {
+	return 64
+}
+
 // pos 以0为基
 func (bitInt *BitInt) SetFlag(pos uint64) {
 	if pos > 63 {

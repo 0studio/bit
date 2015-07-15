@@ -2,6 +2,10 @@ package bit
 
 type BitInt16 uint16
 
+func (bitInt BitInt16) Len() int {
+	return 16
+}
+
 // pos 以0为基
 func (bitInt *BitInt16) SetFlag(pos uint16) {
 	if pos > 16 {

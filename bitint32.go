@@ -2,6 +2,10 @@ package bit
 
 type BitInt32 uint32
 
+func (bitInt BitInt32) Len() int {
+	return 32
+}
+
 // pos 以0为基
 func (bitInt *BitInt32) SetFlag(pos uint32) {
 	if pos > 32 {

@@ -3,6 +3,9 @@ package bit
 type BitInt8 uint8
 
 // pos 以0为基
+func (bitInt BitInt8) Len() int {
+	return 8
+}
 func (bitInt *BitInt8) SetFlag(pos uint8) {
 	if pos > 8 {
 		return
